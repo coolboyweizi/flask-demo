@@ -2,10 +2,49 @@
 from flask import Flask, request, g
 from libs.imgrizer import Imagrizer
 import json
+from math import ceil
+import time
+import urllib
+from os.path import dirname,exists
+from os import sep, makedirs
+
 
 app = Flask(__name__)
 app.secret_key = 'SET_ME_BEFORE_USE_SESSION'
 
+
+APP_HOST = 'http://app.hsjp138.com'
+
+
+def removeSep(item):
+    if item.startswith(sep):
+        return removeSep(item[1:])
+    else:
+        return item
+
+def logger(data):
+    makedirs('./log')
+    f = open('./log/'+str(ceil(time.time())),'w')
+    f.write(data)
+    f.close()
+
+def download(src_img):
+    """
+    下载原图片。测试用
+    :param src_img:
+    :return:
+    """
+    src_img = removeSep(src_img)
+
+    if exists(src_img) : return True
+
+    if exists(dirname(src_img)) is False:
+        makedirs(dirname(src_img))
+
+    url = sep.join((APP_HOST, src_img))
+    urllib.urlretrieve(url, src_img)
+
+    return exists(src_img)
 
 
 @app.route('/cutting/', methods=['GET', "POST"])
@@ -19,15 +58,20 @@ def cutting():
     """
     if request.method == "POST":
         try:
-            imgFile = request.form.get('src')
             md5Sum = request.form.get('md5sum')
-            cname = request.form.get('cname')
-            img = Imagrizer(imgFile, md5Sum)
-            img.compress(cname, 200, 200, True)
-            return "aaaa"
+            imgFile = removeSep(request.form.get('src'))
+            cname = removeSep(request.form.get('dstname'))
+
+            if download(imgFile):
+                img = Imagrizer(imgFile, md5Sum)
+                img.compress(cname, 200, 200, True)
+                return "good"
+            else:
+                return "bad"
+
         except IOError as e:
             return str(e)
-        return "sss"
+
     else:
         return "GET METHOD"
 
@@ -36,30 +80,37 @@ def cutting():
 def compress():
     if request.method != "POST":
         return "bad request"
-
     try:
-        imgFile = request.form.get('src')
+        imgFile = removeSep(request.form.get('src'))
+        dstname = removeSep(request.form.get('dstname'))
         md5Sum = request.form.get('md5sum')
-        dstname = request.form.get('cname')
-        img = Imagrizer(imgFile, md5Sum)
 
-        if img.compress(dstname, 200, 200, True):
-            return json.dumps({
-                'code': 0,
-                'msg': 'compress success !',
-                'path': dstname
-            })
+        if download(imgFile):
+
+            img = Imagrizer(imgFile, md5Sum)
+
+            if img.compress(dstname, 200, 200, True):
+                data ={
+                    'code': 0,
+                    'msg': 'compress success !',
+                    'path': dstname
+                }
+            else:
+                data = {
+                    'code': 10001,
+                    'msg': 'compress failure!',
+                }
         else:
-            return json.dumps({
-                'code': 10001,
-                'msg': 'compress failure!',
-            })
-
+            return "bad"
     except IOError as e:
-        return json.dumps({
+        data ={
             'code': -1,
             'msg': str(e)
-        })
+        }
+
+    logger(data)
+    return data
+
 
 
 if __name__ == '__main__':
