@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="596a81f4-f51c-4ac8-b30b-73ea2c982146" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/imgrizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/imgrizer.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,38 +38,38 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2004" />
+          <entry key="py" value="2062" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2004" />
+          <entry key="Python" value="2062" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state>
+              <caret selection-end-column="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1536213220838" expanded="true" signature="365:1543" ph="..." />
-                <marker date="1536213220838" expanded="true" signature="785:1543" ph="..." />
-                <marker date="1536213220838" expanded="true" signature="844:1543" ph="..." />
+                <marker date="1536213435412" expanded="true" signature="374:1552" ph="..." />
+                <marker date="1536213435412" expanded="true" signature="794:1552" ph="..." />
+                <marker date="1536213435412" expanded="true" signature="853:1552" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/libs/imgrizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state>
+              <caret column="22" selection-start-column="22" selection-end-column="22" />
               <folding>
                 <element signature="e#33#56#0" expanded="true" />
               </folding>
@@ -85,8 +85,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/libs/imgrizer.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/libs/imgrizer.py" />
       </list>
     </option>
   </component>
@@ -179,12 +179,12 @@
     <frame x="1280" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16719915" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16719915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3283186" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3283186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -218,25 +218,25 @@
     <entry file="file://$PROJECT_DIR$/public/c.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/imgrizer.py">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state>
+          <caret selection-end-column="22" />
           <folding>
-            <element signature="e#33#56#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1536213435412" expanded="true" signature="374:1552" ph="..." />
+            <marker date="1536213435412" expanded="true" signature="794:1552" ph="..." />
+            <marker date="1536213435412" expanded="true" signature="853:1552" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://$PROJECT_DIR$/libs/imgrizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1536213220838" expanded="true" signature="365:1543" ph="..." />
-            <marker date="1536213220838" expanded="true" signature="785:1543" ph="..." />
-            <marker date="1536213220838" expanded="true" signature="844:1543" ph="..." />
+            <element signature="e#33#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
