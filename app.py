@@ -23,7 +23,7 @@ def removeSep(item):
         return item
 
 def logger(data):
-    makedirs('./log')
+    if exists('./log') is False :makedirs('./log')
     f = open('./log/'+str(ceil(time.time())),'w')
     f.write(data)
     f.close()
