@@ -108,8 +108,8 @@ def compress():
             'msg': str(e)
         }
 
-    logger(data)
-    return data
+    logger(json.dumps(data))
+    return json.dumps(data)
 
 
 
