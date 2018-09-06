@@ -1,9 +1,11 @@
+# -*- coding:utf-8 -*-
 from flask import Flask, request, g
 from libs.imgrizer import Imagrizer
 import json
 
 app = Flask(__name__)
 app.secret_key = 'SET_ME_BEFORE_USE_SESSION'
+
 
 
 @app.route('/cutting/', methods=['GET', "POST"])
@@ -61,4 +63,4 @@ def compress():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False, host='0.0.0.0', port=80)
