@@ -55,7 +55,10 @@ class Imagrizer():
         :return: 存储结果
         """
         try:
-            if exists(dirname(dst)) is False: makedirs(dirname(dst))
+
+            if exists(dirname(dst)) is False and dst != "":
+                makedirs(dirname(dst))
+
             obj.save(dst, format='JPEG', quality=90)
         except IOError as e:
             self.error = e.getError()
@@ -88,6 +91,11 @@ class Imagrizer():
         :param dst_h: 裁剪高度
         :return:
         """
+
+        if dst_w == 0 :
+            dst_w = floor(self.size[0]/2)
+        if dst_h == 0 :
+            dst_h = floor(self.size[1]/2)
 
         # 是否先裁剪
         if cutting is True:
