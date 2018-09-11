@@ -9,7 +9,7 @@
 from os import makedirs
 from os.path import exists, splitext, dirname, sep
 from PIL import Image
-from math import fabs, floor
+from math import fabs, floor,ceil
 from hashlib import md5
 
 
@@ -74,8 +74,8 @@ class Imagrizer():
         :return:       bool
         """
         # 分别计算X，Y合理的偏移量
-        start_x = floor(fabs(self.size[0] - dst_w) / 2)
-        start_y = floor(fabs(self.size[1] - dst_h) / 2)
+        start_x = ceil(fabs(self.size[0] - dst_w) / 2)
+        start_y = ceil(fabs(self.size[1] - dst_h) / 2)
 
         box = (start_x, start_y, start_x + dst_w, start_y + dst_h)
         self.cut = self.im.resize((dst_w, dst_h), Image.ANTIALIAS, box=box)
@@ -93,9 +93,9 @@ class Imagrizer():
         """
 
         if dst_w == 0 :
-            dst_w = floor(self.size[0]/2)
+            dst_w = ceil(self.size[0]/2)
         if dst_h == 0 :
-            dst_h = floor(self.size[1]/2)
+            dst_h = ceil(self.size[1]/2)
 
         # 是否先裁剪
         if cutting is True:
