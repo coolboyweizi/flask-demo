@@ -9,6 +9,7 @@
 from os import makedirs
 from os.path import exists, splitext, dirname, sep
 from PIL import Image
+from math import fabs, floor,ceil
 from hashlib import md5
 
 
