@@ -5,6 +5,7 @@ import json
 from math import ceil
 import time
 import urllib
+import shutil
 from os.path import dirname,exists
 from os import sep, makedirs
 
@@ -13,7 +14,8 @@ app = Flask(__name__)
 app.secret_key = 'SET_ME_BEFORE_USE_SESSION'
 
 
-APP_HOST = 'http://app.hsjp138.com'
+APP_HOST = 'http://app.hsjp138.com/'
+APP_ROOT = '/data/www/huishang'
 
 
 def removeSep(item):
@@ -31,18 +33,21 @@ def logger(data):
 def download(src_img):
     """
     下载原图片。测试用
-    :param src_img:
-    :return:
+    :param src_img: 原图片地址
+    :return: bool
     """
     src_img = removeSep(src_img)
 
-    if exists(src_img) : return True
+    if exists(src_img):
+        return True
 
     if exists(dirname(src_img)) is False:
         makedirs(dirname(src_img))
 
-    url = sep.join((APP_HOST, src_img))
-    urllib.urlretrieve(url, src_img)
+    #url = sep.join((APP_HOST, src_img))
+    #urllib.urlretrieve(url, src_img)
+    up_file = sep.join((APP_HOST), src_img)
+    shutil.copy(up_file, src_img)
 
     return exists(src_img)
 
@@ -89,7 +94,7 @@ def compress():
 
             img = Imagrizer(imgFile, md5Sum)
 
-            if img.compress(dstname, 200, 200, True):
+            if img.compress(dstname, 0,0, True):
                 data ={
                     'code': 0,
                     'msg': 'compress success !',
