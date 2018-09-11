@@ -46,7 +46,7 @@ def download(src_img):
 
     #url = sep.join((APP_HOST, src_img))
     #urllib.urlretrieve(url, src_img)
-    up_file = sep.join((APP_HOST, src_img))
+    up_file = sep.join((APP_ROOT, src_img))
     shutil.copy(up_file, src_img)
 
     return exists(src_img)
