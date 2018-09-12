@@ -90,7 +90,7 @@ def compress():
         return "bad request"
     try:
         imgFile = removeSep(request.form.get('src'))
-        dstname = removeSep(request.form.get('dstname'))
+        dstname = removeSep(request.form.get('dstname')) # 替换demo
         md5Sum = request.form.get('md5sum')
 
         if download(imgFile):
@@ -103,7 +103,7 @@ def compress():
             }
             status = False
             for i in (200,400,800):
-                dstname = str(i)+"x"+str(i)+"/"+dstname
+                dstname = dstname.replace('demo',str(i)+"x"+str(i))
                 status = img.compress(dstname, 0,0, True)
                 if status is False:
                     data = {
@@ -111,7 +111,7 @@ def compress():
                         'msg': 'compress failure!',
                     }
                     break
- 
+
     except IOError as e:
         data ={
             'code': -1,
