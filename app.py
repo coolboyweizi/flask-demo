@@ -106,13 +106,7 @@ def compress():
                 dstname = dstname.replace('demo',str(i)+"x"+str(i))
                 logger(dstname)
                 status = img.compress(dstname, i,i, True)
-                if status is False:
-                    data = {
-                        'code': 10001,
-                        'msg': 'compress failure!',
-                    }
-                    break
-
+                
     except IOError as e:
         data ={
             'code': -1,
