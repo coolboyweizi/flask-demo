@@ -69,10 +69,10 @@ def cutting():
 
             if download(imgFile):
                 img = Imagrizer(imgFile, md5Sum)
-                #
-                img.compress('200x200/'+cname, 200, 200, True)
-                img.compress('400x400/'+cname, 400, 400, True)
-                img.compress('800x800/'+cname, 800, 800, True)
+                img.compress(cname, 200, 200, True)
+                #img.compress('200x200/'+cname, 200, 200, True)
+                #img.compress('400x400/'+cname, 400, 400, True)
+                #img.compress('800x800/'+cname, 800, 800, True)
                 return "good"
             else:
                 return "bad"
@@ -97,17 +97,21 @@ def compress():
 
             img = Imagrizer(imgFile, md5Sum)
 
-            if img.compress(dstname, 0,0, True):
-                data ={
-                    'code': 0,
-                    'msg': 'compress success !',
-                    'path': dstname
-                }
-            else:
-                data = {
-                    'code': 10001,
-                    'msg': 'compress failure!',
-                }
+            data = {
+                'code': 0,
+                'msg': 'compress ok',
+            }
+            status = False
+            for i in (200,400,800):
+                dstname = str(i)+"x"+str(i)+"/"+dstname
+                status = img.compress(dstname, 0,0, True)
+                if status is False:
+                    data = {
+                        'code': 10001,
+                        'msg': 'compress failure!',
+                    }
+                    break
+            return data
         else:
             return "bad"
     except IOError as e:
