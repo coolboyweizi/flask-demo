@@ -104,7 +104,8 @@ def compress():
             status = False
             for i in (200,400,800):
                 dstname = dstname.replace('demo',str(i)+"x"+str(i))
-                status = img.compress(dstname, 0,0, True)
+                logger(dstname)
+                status = img.compress(dstname, i,i, True)
                 if status is False:
                     data = {
                         'code': 10001,
