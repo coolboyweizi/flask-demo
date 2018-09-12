@@ -111,9 +111,7 @@ def compress():
                         'msg': 'compress failure!',
                     }
                     break
-            return data
-        else:
-            return "bad"
+ 
     except IOError as e:
         data ={
             'code': -1,
