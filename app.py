@@ -105,7 +105,7 @@ def compress():
             for i in (200,400,800):
                 dtname = dstname.replace('demo',str(i)+"x"+str(i))
                 logger(dtname)
-                status = img.compress(dtname, i,i, True)
+                status = img.compress('img/'+dtname, i,i, True)
 
     except IOError as e:
         data ={
